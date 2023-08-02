@@ -1,0 +1,34 @@
+python3 run_medqa.py \
+        --model_name_or_path model_name_or_path \
+        --moe_bert \
+        --moe_arch 10-2-0 \
+        --num_expert 4 \
+        --routing_linear \
+        --routing_dim 20 \
+        --routing_feat q_mean \
+        --gate_type v2 \
+        --balance_type acc_all \
+        --balance_factor 0.01 \
+        --train_file train_file \
+        --validation_file validation_file \
+        --test_file test_file \
+        --output_dir output_dir \
+        --logging_dir logging_dir \
+        --do_eval \
+        --do_predict \
+        --load_best_model_at_end \
+        --metric_for_best_model accuracy \
+        --learning_rate 3e-5 \
+        --weight_decay 0 \
+        --num_train_epochs 5 \
+        --seed 1234 \
+        --per_gpu_eval_batch_size 2 \
+        --per_device_train_batch_size 2 \
+        --max_seq_length 512 \
+        --gradient_accumulation_steps 1 \
+        --overwrite_cache \
+        --overwrite_output_dir \
+        --save_strategy epoch \
+        --logging_steps 10 \
+        --warmup_ratio 0.1 \
+        --evaluation_strategy epoch
